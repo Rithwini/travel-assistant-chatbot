@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0">
+    <title>Travel Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="mainheading">Welcome to the Travel Assistant chatbot </h1>
+    
+    <h2>Get Weather Information</h2>
+    <form action="/weather" method="post">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+        <input type="submit" value="Get Weather">
+    </form>
+    {% if weather_info %}
+        <p>{{ weather_info }}</p>
+    {% endif %}
+    
+    <h2>Suggest a Travel Destination</h2>
+    <form action="/destination" method="post">
+        <label for="budget">Budget (low, medium, high):</label>
+        <input type="text" id="budget" name="budget">
+        <input type="submit" value="Suggest Destination">
+    </form>
+    {% if destination_info %}
+        <p>{{ destination_info }}</p>
+    {% endif %}
+    
+    <h2>Get Travel Advice</h2>
+    <form action="/advice" method="post">
+        <label for="topic">Topic (packing, safety, budget):</label>
+        <input type="text" id="topic" name="topic">
+        <input type="submit" value="Get Advice">
+    </form>
+    {% if advice_info %}
+        <p>{{ advice_info }}</p>
+    {% endif %}
+    
+    <h2>Find a Flight</h2>
+    <form action="/flight" method="post">
+        <label for="origin">Origin City:</label>
+        <input type="text" id="origin" name="origin">
+        <label for="destination">Destination City:</label>
+        <input type="text" id="destination" name="destination">
+        <label for="date">Departure Date (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date">
+        <input type="submit" value="Find Flight">
+    </form>
+    {% if flight_info %}
+        <p>{{ flight_info }}</p>
+    {% endif %}
+    
+    <h2>Find a Hotel</h2>
+    <form action="/hotel" method="post">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city">
+        <label for="check_in">Check-in Date (YYYY-MM-DD):</label>
+        <input type="text" id="check_in" name="check_in">
+        <label for="check_out">Check-out Date (YYYY-MM-DD):</label>
+        <input type="text" id="check_out" name="check_out">
+        <input type="submit" value="Find Hotel">
+    </form>
+    {% if hotel_info %}
+        <p>{{ hotel_info }}</p>
+    {% endif %}
+</body>
+</html>
